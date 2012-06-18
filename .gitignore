@@ -7,3 +7,9 @@
 *.cmx
 *.cmxs
 *.cmxa
+_server
+_client
+*.js
+.depend
+*~
+#*#
