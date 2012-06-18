@@ -21,18 +21,29 @@ let main_service =
     ~get_params:unit
     ()
 
+let skeletton c =
+  (html
+     (head
+	(title
+	   (pcdata "Karaokanime ! :: Les karaokés des génériques de vos animes préférés")
+	)
+	[
+	  (css_link ~uri:(make_uri (Eliom_service.static_dir ())
+			    ["css";"style.css"]) ()
+	  )
+	]
+     )
+     (body
+	c
+     )
+  )
+    
 let _ = 
   Example_app.register
     ~service:main_service
     (fun () () ->
       Lwt.return
-        (html
-	   (head
-	      (title (pcdata "Karaokanime ! :: Les karaokés des génériques de vos animes préférés")
-	      ) [css_link ~uri:(make_uri (Eliom_service.static_dir ())
-				  ["css";"style.css"]) ()])
-           (body [h1 [pcdata "Karaokanime"];
-		  p [pcdata "Les karaokés des génériques de vos animes préférés"]
-		 ])
-	)
+        (skeletton [h1 [pcdata "Karaokanime"];
+		    p [pcdata "Les karaokés des génériques de vos animes préférés"]
+		   ])
     )
