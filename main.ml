@@ -1,8 +1,8 @@
 (* ************************************************************************** *)
-(* Project: Gallery                                                           *)
-(* Description: Example of usage of the module Gallery. See gallery.ml        *)
+(* Project: Karaokanime                                                       *)
+(* Description: Karaokanime is a web community about anime karaoke.           *)
 (* Author: db0 (db0company@gmail.com, http://db0.fr/)                         *)
-(* Latest Version is on GitHub: https://github.com/db0company/Gallery         *)
+(* Latest Version is on GitHub: https://github.com/db0company/Karaokanime     *)
 (* ************************************************************************** *)
 
 open Eliom_content
@@ -21,29 +21,14 @@ let main_service =
     ~get_params:unit
     ()
 
-let skeletton c =
-  (html
-     (head
-	(title
-	   (pcdata "Karaokanime ! :: Les karaokés des génériques de vos animes préférés")
-	)
-	[
-	  (css_link ~uri:(make_uri (Eliom_service.static_dir ())
-			    ["css";"style.css"]) ()
-	  )
-	]
-     )
-     (body
-	c
-     )
-  )
-    
-let _ = 
+let main () = 
   Example_app.register
     ~service:main_service
     (fun () () ->
       Lwt.return
-        (skeletton [h1 [pcdata "Karaokanime"];
-		    p [pcdata "Les karaokés des génériques de vos animes préférés"]
-		   ])
-    )
+        (Pager.create
+	   [h1 [pcdata Karaokanime.title];
+	    p [pcdata Karaokanime.slogan]
+	   ]))
+
+let _ = main ()
