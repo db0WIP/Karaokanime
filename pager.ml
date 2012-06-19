@@ -86,7 +86,7 @@ let display_header =
 (* Footer                                                                     *)
 (* ************************************************************************** *)
 
-let display_footer = display_header
+let display_footer = div ~a:[a_class["footer"]] []
 
 (* ************************************************************************** *)
 (* Pager                                                                      *)
