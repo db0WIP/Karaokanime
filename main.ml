@@ -9,26 +9,10 @@ open Eliom_content
 open Html5.D
 open Eliom_parameter
 
-module Example_app =
-  Eliom_registration.App
-    (struct
-      let application_name = "karaokanime"
-     end)
-
-let main_service =
-  Eliom_service.service
-    ~path:[""]
-    ~get_params:unit
-    ()
-
-let main () = 
-  Example_app.register
-    ~service:main_service
+let _ =
+  Services.Karaokapp.register
+    ~service:Services.main
     (fun () () ->
       Lwt.return
         (Pager.create
-	   [h1 [pcdata Karaokanime.title];
-	    p [pcdata Karaokanime.slogan]
-	   ]))
-
-let _ = main ()
+	   []))

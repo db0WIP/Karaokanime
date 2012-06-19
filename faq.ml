@@ -1,12 +1,19 @@
 (* ************************************************************************** *)
 (* Project: Karaokanime                                                       *)
-(* Description: Pager module. Tools to create Ocsigen pages.                  *)
+(* Description: F.A.Q. (Frequently asked questions) page                      *)
 (* Author: db0 (db0company@gmail.com, http://db0.fr/)                         *)
 (* Latest Version is on GitHub: https://github.com/db0company/Karaokanime     *)
 (* ************************************************************************** *)
 
-(* Return a page correctly formatted with header and footer                   *)
-(* containing the given body                                                  *)
-val create :
-  [< Html5_types.body_content_fun > `Div ] Eliom_content.Html5.D.elt list ->
-  [> `Html ] Eliom_content.Html5.D.elt
+open Eliom_content
+open Html5.D
+open Eliom_parameter
+
+let _ =
+  Services.Karaokapp.register
+    ~service:Services.faq
+    (fun () () ->
+      Lwt.return
+        (Pager.create
+	   [h1 [pcdata "F.A.Q"]]))
+
