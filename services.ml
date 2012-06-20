@@ -57,6 +57,12 @@ let list =
     ~get_params:unit
     ()
 
+let list_query =
+  Eliom_service.service
+    ~path:["search"]
+    ~get_params:(suffix (string "query"))
+    ()
+
 let helpus =
   Eliom_service.service
     ~path:["helpus"]

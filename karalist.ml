@@ -17,3 +17,12 @@ let _ =
         (Pager.create
 	   [h1 [pcdata "List of karaokes"]]))
 
+let _ =
+  Services.Karaokapp.register
+    ~service:Services.list_query
+    (fun query () ->
+      Lwt.return
+        (Pager.create
+	   [h1 [pcdata ("List of karaokes for query " ^ query)]]))
+
+

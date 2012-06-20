@@ -32,6 +32,7 @@ let search_form =
   post_form Services.search
     (fun query_name ->
       [string_input
+	  ~a:[a_class["text"]]
 	  ~input_type:`Text
 	  ~name:query_name
 	  ();
@@ -65,9 +66,9 @@ let display_header =
 	       ()
 	   ] ()] in
   (* todo: arrange this alphabet*)
-  (* let alphabet = ['a'; 'b'; 'c'; 'd'; 'e'; 'f'; 'g'; 'h'; 'i'; 'j';  *)
-  (* 		 'k'; 'l'; 'm'; 'n'; 'o'; 'p'; 'q'; 'r'; 's'; 't'; *)
-  (* 		 'u'; 'v'; 'w'; 'x'; 'y'; 'z'] in *)
+  let alphabet = ['~'; 'a'; 'b'; 'c'; 'd'; 'e'; 'f'; 'g'; 'h'; 'i';
+		  'j'; 'k'; 'l'; 'm'; 'n'; 'o'; 'p'; 'q'; 'r'; 's';
+		  't'; 'u'; 'v'; 'w'; 'x'; 'y'; 'z'] in
   div
     ~a:[a_class["header"]]
     [div ~a:[a_class["menu"]]
@@ -77,9 +78,13 @@ let display_header =
 	 div ~a:[a_class["left_menu"]]
 	   (list_of_menu menu_left)
 	];
-     logo
-    (* div ~a:[a_class["alphabet"]] *)
-    (*   (List.map (fun letter -)) *)
+     logo;
+     div ~a:[a_class["alphabet"]]
+       (List.map
+	  (fun letter ->
+	    let str = Char.escaped letter in
+	    a ~service:Services.list_query
+	      [pcdata str] str) alphabet)
     ]
 
 (* ************************************************************************** *)
@@ -98,8 +103,7 @@ let display_footer = div ~a:[a_class["footer"]] []
 let create body_content =
   let full_body = (display_header::body_content) @ [display_footer] in
   (html http_header
-     (body [div ~a:[a_class["H-F"]] [];
-	    div ~a:[a_class["main"]]
+     (body [div ~a:[a_class["main"]]
 	      full_body
 	   ]))
 
