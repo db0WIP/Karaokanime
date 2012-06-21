@@ -53,13 +53,13 @@ let tutorial =
 
 let list =
   Eliom_service.service
-    ~path:["list"]
+    ~path:["list";""]
     ~get_params:unit
     ()
 
 let list_query =
   Eliom_service.service
-    ~path:["search"]
+    ~path:["list"]
     ~get_params:(suffix (string "query"))
     ()
 
