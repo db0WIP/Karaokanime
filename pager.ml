@@ -84,7 +84,11 @@ let display_header =
 	  (fun letter ->
 	    let str = Char.escaped letter in
 	    a ~service:Services.list_query
-	      [pcdata str] str) alphabet)
+	      [pcdata str] str) alphabet);
+     img ~alt:("test pub")
+       ~src:(make_uri ~service:(Eliom_service.static_dir ())
+	       ["images";"pub.jpg"])
+       ()
     ]
 
 (* ************************************************************************** *)
@@ -101,9 +105,10 @@ let display_footer = div ~a:[a_class["footer"]] []
 (* Return a page correctly formatted with header and footer                   *)
 (* containing the given body                                                  *)
 let create body_content =
-  let full_body = (display_header::body_content) @ [display_footer] in
   (html http_header
      (body [div ~a:[a_class["main"]]
-	      full_body
+	       [display_header;
+		div ~a:[a_class ["page"]] body_content;
+		display_footer]
 	   ]))
 

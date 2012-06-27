@@ -13,18 +13,18 @@ CLIENT_PACKAGES :=
 
 ## Source files for the server part
 
-SERVER_FILES := 	\
-		services.ml	\
-		karaokanime.ml	\
-		pager.ml	\
-		contact.ml	\
-		faq.ml		\
-		helpus.ml	\
-		karalist.ml	\
-		playlist.ml	\
-		tutorial.ml	\
-		upload.ml	\
-		main.ml		\
+SERVER_FILES := \
+		services.ml		\
+		karaokanime.ml		\
+		pager.ml		\
+		pages/contact.ml	\
+		pages/faq.ml		\
+		pages/helpus.ml		\
+		pages/karalist.ml	\
+		pages/playlist.ml	\
+		pages/tutorial.ml	\
+		pages/upload.ml		\
+		pages/main.ml		\
 		\
 
 ## Source files for the client part
