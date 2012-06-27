@@ -17,14 +17,14 @@ SERVER_FILES := \
 		services.ml		\
 		karaokanime.ml		\
 		pager.ml		\
-		pages/contact.ml	\
-		pages/faq.ml		\
-		pages/helpus.ml		\
-		pages/karalist.ml	\
-		pages/playlist.ml	\
-		pages/tutorial.ml	\
-		pages/upload.ml		\
-		pages/main.ml		\
+		src/pages/contact.ml	\
+		src/pages/faq.ml	\
+		src/pages/helpus.ml	\
+		src/pages/karalist.ml	\
+		src/pages/playlist.ml	\
+		src/pages/tutorial.ml	\
+		src/pages/upload.ml	\
+		src/pages/main.ml	\
 		\
 
 ## Source files for the client part
