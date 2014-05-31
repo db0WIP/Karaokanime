@@ -1,0 +1,43 @@
+body {
+background: #ffffff url('images/interface/bg.png');
+font-family: Tahoma;
+font-size: 12px;
+color: rgb(51, 102, 255);
+margin: auto;
+margin-top:0;
+margin-bottom: 0px;
+}
+
+#main {
+background: url('images/interface/bg-main.png') repeat-y;
+margin: auto;
+width: 930px;
+min-height: 900px;
+} 
+
+#header{
+background: url('images/interface/banniere.png') no-repeat;
+margin: auto;
+width: 930px;
+height: 188px;
+} 
+
+#page{
+margin: auto;
+width: 930px;
+} 
+
+#menu{
+background: rgb(211,213,254) url('images/interface/banniere.png') no-repeat;
+width: 150px;
+float: right;
+} 
+
+#center{
+background: url('images/girls/kono.png') no-repeat;
+background-position: 0 -300px;
+margin: auto;
+width: 930px;
+min-height: 500px;
+padding-left: 200px;
+} 
